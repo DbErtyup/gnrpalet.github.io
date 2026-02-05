@@ -1,54 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GNR PALET & AHŞAP | Ana Sayfa</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
-    <header>
-        <nav class="navbar">
-            <div class="logo">GNR PALET & AHŞAP</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
-                <li><a href="#urunler">Ürünler</a></li>
-                <li><a href="tel:+905335955726" class="nav-phone"><i class="fas fa-phone"></i> +90 533 595 57 26</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h1>GNR PALET AHŞAP</h1>
-            <p>Kaliteli ve dayanıklı ahşap çözümleri.</p>
-            <div class="hero-buttons">
-                <a href="#urunler" class="btn btn-primary">Ürünler 👉</a>
-                <a href="tel:+905335955726" class="btn btn-secondary">Hemen Ara</a>
-            </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GNR PALET | Liquid Glass Edition</title>
+        <link rel="stylesheet" href="style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="bg-blobs">
+            <div class="blob"></div>
+            <div class="blob"></div>
+            <div class="blob"></div>
         </div>
-    </section>
 
-    <section id="urunler" class="content-section">
-        <h2>Ürünlerimiz</h2>
-        <div class="grid-container">
-            <div class="card">
-                <h3>Ahşap Palet</h3>
-                <p>Standart ve özel ölçülerde üretim.</p>
+        <header>
+            <nav class="navbar">
+                <div class="logo-container">
+                    <img src="img/logo.png" alt="Logo" class="nav-logo-img" />
+                    <span class="logo-text">GNR PALET</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Ana Sayfa</a></li>
+                    <li><a href="#">Ürünler</a></li>
+                    <li><a href="#" class="contact-link">İletişim</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="hero">
+            <div class="liquid-glass-card" id="glass">
+                <div class="glow"></div>
+                <div class="content">
+                    <h1>GNR PALET</h1>
+                    <p></p>
+                    <button class="liquid-btn">Katalogu Gör</button>
+                </div>
             </div>
-            <div class="card">
-                <h3>Özel Tasarım</h3>
-                <p>İhtiyacınıza uygun ahşap çözümleri.</p>
-            </div>
-        </div>
-    </section>
+        </main>
 
-    <footer>
-        <p>&copy; 2026 GNR PALET & AHŞAP</p>
-    </footer>
-
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>
-
