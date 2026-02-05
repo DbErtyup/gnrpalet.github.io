@@ -1,29 +1,25 @@
-const glass = document.getElementById("glass");
+const glass = document.getElementById('glass');
 
-document.addEventListener("mousemove", (e) => {
-  const { clientX, clientY } = e;
-  const { left, top, width, height } = glass.getBoundingClientRect();
+// Cihazın mobil olup olmadığını kontrol et
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-  // Mouse pozisyonu (Glow için)
-  const x = ((clientX - left) / width) * 100;
-  const y = ((clientY - top) / height) * 100;
+if (!isMobile) {
+    document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = glass.getBoundingClientRect();
 
-  glass.style.setProperty("--mouse-x", `${x}%`);
-  glass.style.setProperty("--mouse-y", `${y}%`);
+        // Hafif ve performanslı eğilme (Açıları düşürdük: /25)
+        const rotateX = (height / 2 - (clientY - top)) / 25;
+        const rotateY = ((clientX - left) - width / 2) / 25;
 
-  // 3D Tilt (Eğilme)
-  const rotateX = (height / 2 - (clientY - top)) / 15;
-  const rotateY = (clientX - left - width / 2) / 15;
+        // requestAnimationFrame kullanarak tarayıcıyı yormadan güncelleme yapabiliriz
+        requestAnimationFrame(() => {
+            glass.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+    });
 
-  glass.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
-
-// Resetleme
-document.addEventListener("mouseleave", () => {
-  glass.style.transform = "rotateX(0deg) rotateY(0deg)";
-  glass.style.transition = "all 0.6s cubic-bezier(0.23, 1, 0.32, 1)";
-});
-
-glass.addEventListener("mouseenter", () => {
-  glass.style.transition = "none";
-});
+    document.addEventListener('mouseleave', () => {
+        glass.style.transform = 'rotateX(0deg) rotateY(0deg)';
+        glass.style.transition = 'transform 0.5s ease';
+    });
+}
