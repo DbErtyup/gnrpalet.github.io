@@ -6,52 +6,129 @@
 }
 
 body {
-    background: #000b18; /* Sabit koyu lacivert arka plan */
-    height: 100vh;
+    background: #00050a; /* Arka planı daha da kararttık */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+/* ÜST BAR TASARIMI */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background: rgba(0, 8, 20, 0.7); /* Şeffaf koyu mavi */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.nav-logo {
+    height: 40px;
+    width: auto;
+}
+
+.brand-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.active {
+    color: #f39c12;
+}
+
+.contact-btn {
+    background: #f39c12 !important;
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+/* ANA PANEL ALANI */
+.wrapper {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    overflow: hidden;
+    padding: 100px 20px 40px; /* Üstten header boşluğu verdik */
 }
 
-/* ANA CAM PANEL */
 .glass-panel {
     position: relative;
     width: 100%;
-    max-width: 750px;
-    background: rgba(255, 255, 255, 0.04); /* Çok hafif şeffaflık */
-
-    /* Gelişmiş Cam Efekti */
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(25px) saturate(180%);
     -webkit-backdrop-filter: blur(25px) saturate(180%);
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
     padding: 50px 40px;
-    color: white;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     overflow: hidden;
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.6);
+}
+
+/* Mouse Highlight */
+.mouse-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at var(--x, -100%) var(--y, -100%),
+        rgba(255, 255, 255, 0.1) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
 }
 
 .panel-header {
     text-align: center;
     margin-bottom: 40px;
 }
-
 .panel-header h1 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    letter-spacing: -1px;
-    margin-bottom: 5px;
+    font-size: 2.2rem;
+    margin-bottom: 8px;
 }
-
 .panel-header p {
-    font-size: 1rem;
-    opacity: 0.6;
+    opacity: 0.5;
+    font-size: 0.95rem;
 }
 
-/* ÜRÜN GRID YAPISI */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -60,72 +137,33 @@ body {
 }
 
 .product-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 20px;
     border-radius: 20px;
-    transition: background 0.3s;
 }
 
-.product-card h3 {
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-    color: #fff;
-}
-
-.product-card p {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    opacity: 0.5;
-}
-
-/* MOUSE HIGHLIGHT (IŞIK) */
-.mouse-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Işığın rengini buradan değiştirebilirsin (0.15 olan opaklık) */
-    background: radial-gradient(
-        circle at var(--x, -100%) var(--y, -100%),
-        rgba(255, 255, 255, 0.15) 0%,
-        transparent 45%
-    );
-    pointer-events: none;
-}
-
-/* BUTON */
 .action-btn {
     display: block;
     margin: 0 auto;
-    padding: 14px 45px;
+    padding: 12px 40px;
     background: white;
-    color: #000b18;
+    color: black;
     border: none;
     border-radius: 50px;
     font-weight: 600;
-    font-size: 1rem;
     cursor: pointer;
-    transition:
-        transform 0.2s,
-        box-shadow 0.2s;
 }
 
-.action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
-}
-
-/* MOBİL AYARLAR */
-@media (max-width: 650px) {
+/* MOBİL UYUM */
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    } /* Mobil menü karmaşasını önlemek için gizledik */
     .product-grid {
         grid-template-columns: 1fr;
-    } /* Tek sütun */
-    .glass-panel {
-        padding: 35px 20px;
     }
-    .panel-header h1 {
-        font-size: 2rem;
+    .glass-panel {
+        padding: 30px 20px;
     }
 }
