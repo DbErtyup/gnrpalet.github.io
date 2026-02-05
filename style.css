@@ -18,7 +18,7 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-    background: #000b18; /* Buraya resmini url('resim.jpg') olarak ekle */
+    background: burlywood; /* Buraya resmini url('resim.jpg') olarak ekle */
     background-size: cover;
     z-index: -1;
 }
