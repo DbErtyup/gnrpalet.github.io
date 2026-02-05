@@ -167,16 +167,3 @@ header {
     font-weight: 600;
     cursor: pointer;
 }
-
-/* MOBİL UYUM */
-@media (max-width: 700px) {
-    .nav-links {
-        display: none;
-    } /* Mobil menü karmaşasını önlemek için gizledik */
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-    .glass-panel {
-        padding: 30px 20px;
-    }
-}
