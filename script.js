@@ -1,22 +1,15 @@
-const card = document.getElementById("card");
+const panel = document.getElementById("main-panel");
 
-const isMobile =
-  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
-  );
+panel.addEventListener("mousemove", (e) => {
+  const rect = panel.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-if (!isMobile) {
-  card.addEventListener("mousemove", (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+  panel.style.setProperty("--x", `${x}px`);
+  panel.style.setProperty("--y", `${y}px`);
+});
 
-    card.style.setProperty("--x", `${x}px`);
-    card.style.setProperty("--y", `${y}px`);
-  });
-
-  card.addEventListener("mouseleave", () => {
-    card.style.setProperty("--x", "-100%");
-    card.style.setProperty("--y", "-100%");
-  });
-}
+panel.addEventListener("mouseleave", () => {
+  panel.style.setProperty("--x", "-100%");
+  panel.style.setProperty("--y", "-100%");
+});
