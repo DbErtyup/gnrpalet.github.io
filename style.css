@@ -6,90 +6,61 @@
 }
 
 body {
-    background: #000b18; /* Derin lacivert sabit arka plan */
-    min-height: 100vh;
+    background: #000814; /* Düz, koyu ve asil bir arka plan */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-}
-
-/* Header - Mobil Uyumlu */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 15px 5%;
-    z-index: 1000;
-    background: rgba(0, 11, 24, 0.8);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo-text {
     color: white;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 0.9rem;
 }
 
-/* Mobilde Menüyü Gizleme veya Düzenleme */
-@media (max-width: 600px) {
-    .nav-links {
-        display: none;
-    } /* Basitlik için mobilde linkleri gizledik */
-    .logo-text {
-        font-size: 0.9rem;
-    }
-}
-
-/* PERFORMANSLI CAM KART */
-.liquid-glass-card {
+/* Cam Kart Tasarımı */
+.glass-card {
     position: relative;
-    width: 100%;
-    max-width: 500px; /* Masaüstünde sınır, mobilde tam genişlik */
-    padding: 40px 20px;
-    background: rgba(255, 255, 255, 0.05);
-
-    /* Sadece Blur ve Doygunluk (Performanslı) */
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
-
+    width: 400px;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 25px;
-    text-align: center;
-    color: white;
 
-    /* GPU hızlandırma için */
-    will-change: transform;
+    /* Saf Blur */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Fareyi Takip Eden Işık (Highlight) */
+.highlight-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Başlangıçta ışık görünmez, JS ile konumu belirlenecek */
+    background: radial-gradient(
+        circle at var(--x, -100%) var(--y, -100%),
+        rgba(255, 255, 255, 0.15) 0%,
+        transparent 50%
+    );
+    pointer-events: none;
 }
 
 .content h1 {
-    font-size: clamp(1.8rem, 8vw, 2.8rem); /* Ekrana göre büyüyen yazı */
-    margin-bottom: 15px;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.content p {
+    opacity: 0.7;
+    margin-bottom: 25px;
 }
 
-.liquid-btn {
-    padding: 12px 30px;
-    background: #f39c12;
-    color: white;
+.main-btn {
+    padding: 10px 30px;
     border: none;
-    border-radius: 50px;
+    border-radius: 20px;
+    background: white;
     font-weight: 600;
-    margin-top: 20px;
+    cursor: pointer;
 }

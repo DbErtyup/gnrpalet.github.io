@@ -1,25 +1,18 @@
-const glass = document.getElementById('glass');
+const card = document.getElementById("glass-card");
 
-// Cihazın mobil olup olmadığını kontrol et
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+card.addEventListener("mousemove", (e) => {
+  // Fare koordinatlarını kartın içine hapseder
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
 
-if (!isMobile) {
-    document.addEventListener('mousemove', (e) => {
-        const { clientX, clientY } = e;
-        const { left, top, width, height } = glass.getBoundingClientRect();
+  // CSS değişkenlerini (Highlight konumu) günceller
+  card.style.setProperty("--x", `${x}px`);
+  card.style.setProperty("--y", `${y}px`);
+});
 
-        // Hafif ve performanslı eğilme (Açıları düşürdük: /25)
-        const rotateX = (height / 2 - (clientY - top)) / 25;
-        const rotateY = ((clientX - left) - width / 2) / 25;
-
-        // requestAnimationFrame kullanarak tarayıcıyı yormadan güncelleme yapabiliriz
-        requestAnimationFrame(() => {
-            glass.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-    });
-
-    document.addEventListener('mouseleave', () => {
-        glass.style.transform = 'rotateX(0deg) rotateY(0deg)';
-        glass.style.transition = 'transform 0.5s ease';
-    });
-}
+// Fare karttan çıkınca ışığı sakla
+card.addEventListener("mouseleave", () => {
+  card.style.setProperty("--x", "-100%");
+  card.style.setProperty("--y", "-100%");
+});
