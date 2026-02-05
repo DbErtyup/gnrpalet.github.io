@@ -6,61 +6,120 @@
 }
 
 body {
-    background: #000814; /* Düz, koyu ve asil bir arka plan */
+    background: #000814;
     height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
+    justify-content: center;
+    overflow: hidden; /* Taşmaları engeller */
 }
 
-/* Cam Kart Tasarımı */
+/* NAVBAR VE LOGO FIX */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 5%;
+    background: rgba(0, 8, 20, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 9999; /* En üstte kalsın */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo {
+    height: 40px; /* LOGO BOYUTU BURADAN AYARLANIR */
+    width: auto;
+    object-fit: contain;
+}
+
+.logo-text {
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* GLASS CARD & HIGHLIGHT */
+.hero {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
 .glass-card {
     position: relative;
-    width: 400px;
-    padding: 50px;
+    width: 100%;
+    max-width: 500px;
+    padding: 60px 30px;
     background: rgba(255, 255, 255, 0.03);
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* Saf Blur */
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-
+    backdrop-filter: blur(20px) saturate(160%);
     overflow: hidden;
     text-align: center;
+    color: white;
 }
 
-/* Fareyi Takip Eden Işık (Highlight) */
-.highlight-effect {
+.mouse-highlight {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Başlangıçta ışık görünmez, JS ile konumu belirlenecek */
     background: radial-gradient(
         circle at var(--x, -100%) var(--y, -100%),
-        rgba(255, 255, 255, 0.15) 0%,
+        rgba(255, 255, 255, 0.12) 0%,
         transparent 50%
     );
     pointer-events: none;
 }
 
 .content h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
     margin-bottom: 10px;
 }
-.content p {
-    opacity: 0.7;
-    margin-bottom: 25px;
-}
-
-.main-btn {
-    padding: 10px 30px;
+.cta-btn {
+    margin-top: 25px;
+    padding: 12px 30px;
+    background: #f39c12;
+    color: white;
     border: none;
-    border-radius: 20px;
-    background: white;
+    border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* MOBİL AYARI */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    } /* Mobilde linkleri gizle temiz görünsün */
 }

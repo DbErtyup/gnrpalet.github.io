@@ -1,18 +1,22 @@
-const card = document.getElementById("glass-card");
+const card = document.getElementById("card");
 
-card.addEventListener("mousemove", (e) => {
-  // Fare koordinatlarını kartın içine hapseder
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
+const isMobile =
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  );
 
-  // CSS değişkenlerini (Highlight konumu) günceller
-  card.style.setProperty("--x", `${x}px`);
-  card.style.setProperty("--y", `${y}px`);
-});
+if (!isMobile) {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-// Fare karttan çıkınca ışığı sakla
-card.addEventListener("mouseleave", () => {
-  card.style.setProperty("--x", "-100%");
-  card.style.setProperty("--y", "-100%");
-});
+    card.style.setProperty("--x", `${x}px`);
+    card.style.setProperty("--y", `${y}px`);
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.setProperty("--x", "-100%");
+    card.style.setProperty("--y", "-100%");
+  });
+}
