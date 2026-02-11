@@ -106,3 +106,194 @@ body {
         height: 300px;
     }
 }
+
+@keyframes revealText {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+        filter: blur(0);
+    }
+}
+
+.giant-text {
+    animation: revealText 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+.sub-text {
+    opacity: 0;
+    animation: revealText 1.2s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+    animation-delay: 1s;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+* {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.contact-section {
+    margin-top: 100px;
+    padding: 50px 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    min-height: 500px;
+}
+
+.contact-info h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.contact-btn {
+    padding: 15px 40px;
+    border-radius: 50px;
+    border: 1px solid white;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.contact-btn:hover {
+    background: white;
+    color: black;
+}
+
+.map-container {
+    border-radius: 40px;
+    overflow: hidden;
+    filter: grayscale(1) invert(0.9) contrast(1.2);
+    border: 1px solid black;
+}
+
+.map-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.map-wrapper.open {
+    grid-template-rows: 1fr;
+    margin-top: 30px;
+}
+
+.map-container {
+    min-height: 0;
+    height: 400px;
+    border-radius: 40px;
+    overflow: hidden;
+    filter: grayscale(1) invert(0.9) contrast(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes revealText {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.map-wrapper {
+    display: grid;
+    grid-template-rows: 0fr; /* Kapalıyken 0 */
+    transition: grid-template-rows 0.5s ease;
+    overflow: hidden;
+}
+
+.map-wrapper.open {
+    grid-template-rows: 1fr; /* Açıldığında tam boy */
+    margin-top: 20px;
+}
+
+.map-container {
+    min-height: 0;
+    height: 400px; /* Harita yüksekliği */
+}
+
+/* Gereksiz map-wrapper ve open sınıflarını sil, bunu ekle: */
+.map-fixed-container {
+    height: 400px;
+    border-radius: 40px;
+    overflow: hidden;
+    filter: grayscale(1) invert(0.9) contrast(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s ease;
+}
+
+/* Sosyal Medya İkonları */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.icon-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.icon-circle:hover {
+    background: white;
+    color: black;
+    transform: translateY(-5px);
+}
+
+/* Telefon Kutusu (Genişleyen Yapı) */
+.phone-box {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    width: fit-content;
+    min-width: 200px;
+}
+
+.phone-header {
+    padding: 15px 25px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.phone-content {
+    display: grid;
+    padding: 0 25px;
+}
+
+.phone-box.open .phone-content {
+    grid-template-rows: 1fr;
+    padding: 15px 25px;
+}
+
+.phone-content p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+    margin: 5px 0;
+}
