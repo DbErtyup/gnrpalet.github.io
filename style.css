@@ -120,6 +120,9 @@ header {
         opacity 0.6s ease-out,
         transform 0.5s ease-in;
     opacity: 0;
+    -webkit-transition: opacity 0.6s ease;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 .glass-panel:hover .mouse-glow {
@@ -168,22 +171,22 @@ header {
     cursor: pointer;
 }
 
-/* --- MOBİL UYUMLULUK AYARLARI --- */
+/* --- mobile --- */
 
-/* Ekran genişliği 768px'den küçükse (Tablet ve Telefonlar) */
+/* 768px */
 @media (max-width: 768px) {
     .glass-panel {
-        width: 95%; /* Kenarlardan çok az boşluk bırak */
-        padding: 30px 20px; /* İç boşluğu daralt */
-        border-radius: 25px; /* Köşeleri biraz daha keskin yap */
+        width: 95%;
+        padding: 30px 20px;
+        border-radius: 25px;
     }
 
     .panel-header h1 {
-        font-size: 1.8rem; /* Başlığı küçült */
+        font-size: 1.8rem;
     }
 
     .product-grid {
-        grid-template-columns: 1fr; /* Ürünleri yan yana değil, alt alta diz */
+        grid-template-columns: 1fr;
         gap: 15px;
     }
 
@@ -191,24 +194,22 @@ header {
         padding: 15px;
     }
 
-    /* Mobilde header bar ayarı */
     .navbar {
-        flex-direction: column; /* Logo ve linkleri alt alta alabilirsin */
+        flex-direction: column;
         gap: 10px;
     }
 
     .nav-links {
-        display: none; /* Mobilde istersen linkleri gizleyip bir menü ikonu ekleyebilirsin */
+        display: none;
     }
 }
 
-/* Ekran çok küçükse (Küçük telefonlar) */
 @media (max-width: 480px) {
     .panel-header h1 {
         font-size: 1.5rem;
     }
 
     .action-btn {
-        width: 100%; /* Butonu tam genişlik yap */
+        width: 80%;
     }
 }
