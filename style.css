@@ -12,7 +12,7 @@ body {
     flex-direction: column;
 }
 
-/* ÜST BAR TASARIMI */
+/* bar */
 header {
     position: fixed;
     top: 0;
@@ -77,13 +77,13 @@ header {
     font-weight: 600;
 }
 
-/* ANA PANEL ALANI */
+/* ana panel cap */
 .wrapper {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 20px 40px; /* Üstten header boşluğu verdik */
+    padding: 100px 20px 40px;
 }
 
 .glass-panel {
@@ -166,4 +166,49 @@ header {
     border-radius: 50px;
     font-weight: 600;
     cursor: pointer;
+}
+
+/* --- MOBİL UYUMLULUK AYARLARI --- */
+
+/* Ekran genişliği 768px'den küçükse (Tablet ve Telefonlar) */
+@media (max-width: 768px) {
+    .glass-panel {
+        width: 95%; /* Kenarlardan çok az boşluk bırak */
+        padding: 30px 20px; /* İç boşluğu daralt */
+        border-radius: 25px; /* Köşeleri biraz daha keskin yap */
+    }
+
+    .panel-header h1 {
+        font-size: 1.8rem; /* Başlığı küçült */
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* Ürünleri yan yana değil, alt alta diz */
+        gap: 15px;
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    /* Mobilde header bar ayarı */
+    .navbar {
+        flex-direction: column; /* Logo ve linkleri alt alta alabilirsin */
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: none; /* Mobilde istersen linkleri gizleyip bir menü ikonu ekleyebilirsin */
+    }
+}
+
+/* Ekran çok küçükse (Küçük telefonlar) */
+@media (max-width: 480px) {
+    .panel-header h1 {
+        font-size: 1.5rem;
+    }
+
+    .action-btn {
+        width: 100%; /* Butonu tam genişlik yap */
+    }
 }
