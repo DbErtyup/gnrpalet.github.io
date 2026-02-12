@@ -47,17 +47,27 @@ body {
     overflow: hidden;
     transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .bento-item:hover {
     background: #1a1a1a;
-    transform: scale(0.98);
+    transform: scale(1.07);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    animation: glowing-pulse 1.5s step-end ease-out;
+
+    z-index: 10;
 }
 
 .item-large {
     grid-column: span 2;
     grid-row: span 2;
+    transform: translateY(0px) scale(1);
 }
+
 .item-medium {
     grid-column: span 2;
     grid-row: span 1;
@@ -173,7 +183,7 @@ body {
 .map-container {
     border-radius: 40px;
     overflow: hidden;
-    filter: grayscale(1) invert(0.9) contrast(1.2);
+    filter: grayscale(1) invert(1) contrast(0);
     border: 1px solid black;
 }
 
@@ -230,9 +240,10 @@ body {
     height: 400px;
     border-radius: 40px;
     overflow: hidden;
-    filter: grayscale(1) invert(0.9) contrast(1.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    filter: grayscale(6) invert(0) contrast(2);
+    border: 10px solid rgba(255, 255, 255, 0.1);
     transition: all 0.5s ease;
+    border-color: white;
 }
 
 .social-icons {
@@ -305,10 +316,10 @@ body {
 }
 
 .social-icon {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid white;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -327,11 +338,16 @@ body {
     flex-direction: column;
     background: #fff;
     color: #000;
-    padding: 60px 30px;
-    border-radius: 20px;
+    padding: 20px 40px;
+    border-radius: 40px;
     text-decoration: none;
     font-weight: 700;
     transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: glowing-pulse 2s infinite ease-in-out;
+
+    -webkit-box-shadow: 0px 0px 47px 9px rgba(177, 177, 177, 1);
+    -moz-box-shadow: 0px 0px 47px 9px rgba(204, 204, 204, 1);
+    box-shadow: 0px 0px 40px 11px rgba(204, 204, 204, 1);
 }
 
 .btn-subtext {
@@ -388,4 +404,31 @@ body {
 
 .social-icon:hover i {
     color: #000000 !important;
+}
+
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0px 0px 20px 2px rgba(204, 204, 204, 0.4);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0px 0px 50px 12px rgba(204, 204, 204, 0.8);
+        transform: scale(1.01);
+    }
+    100% {
+        box-shadow: 0px 0px 20px 2px rgba(204, 204, 204, 0.4);
+        transform: scale(1);
+    }
+}
+
+@keyframes glowing-pulse {
+    0% {
+        box-shadow: 0px 0px 15px 5px rgba(204, 204, 204, 0.3);
+    }
+    50% {
+        box-shadow: 0px 0px 40px 10px rgba(204, 204, 204, 0.7);
+    }
+    100% {
+        box-shadow: 0px 0px 15px 5px rgba(204, 204, 204, 0.3);
+    }
 }
