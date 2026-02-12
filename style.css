@@ -6,19 +6,18 @@
 }
 
 body {
-    background-color: #050505; /* Tam siyah değil, çok koyu bir ton */
+    background-color: #050505;
     color: #ffffff;
     overflow-x: hidden;
     padding: 5vw;
 }
 
-/* DEV BAŞLIK AYARI */
 .hero-section {
     margin-bottom: 100px;
 }
 
 .giant-text {
-    font-size: clamp(4rem, 15vw, 12rem); /* Ekrana göre büyüyen dev yazı */
+    font-size: clamp(4rem, 15vw, 12rem);
     font-weight: 900;
     line-height: 0.85;
     letter-spacing: -0.05em;
@@ -33,7 +32,6 @@ body {
     max-width: 400px;
 }
 
-/* BENTO GRID SİSTEMİ */
 .bento-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -53,10 +51,9 @@ body {
 
 .bento-item:hover {
     background: #1a1a1a;
-    transform: scale(0.98); /* İçeri doğru hafif basılma efekti */
+    transform: scale(0.98);
 }
 
-/* Kartların Dizilimi */
 .item-large {
     grid-column: span 2;
     grid-row: span 2;
@@ -96,7 +93,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* MOBİL UYUM */
 @media (max-width: 900px) {
     .bento-grid {
         display: flex;
@@ -215,22 +211,21 @@ body {
 
 .map-wrapper {
     display: grid;
-    grid-template-rows: 0fr; /* Kapalıyken 0 */
+    grid-template-rows: 0fr;
     transition: grid-template-rows 0.5s ease;
     overflow: hidden;
 }
 
 .map-wrapper.open {
-    grid-template-rows: 1fr; /* Açıldığında tam boy */
+    grid-template-rows: 1fr;
     margin-top: 20px;
 }
 
 .map-container {
     min-height: 0;
-    height: 400px; /* Harita yüksekliği */
+    height: 400px;
 }
 
-/* Gereksiz map-wrapper ve open sınıflarını sil, bunu ekle: */
 .map-fixed-container {
     height: 400px;
     border-radius: 40px;
@@ -240,7 +235,6 @@ body {
     transition: all 0.5s ease;
 }
 
-/* Sosyal Medya İkonları */
 .social-icons {
     display: flex;
     gap: 15px;
@@ -266,7 +260,6 @@ body {
     transform: translateY(-5px);
 }
 
-/* Telefon Kutusu (Genişleyen Yapı) */
 .phone-box {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 20px;
@@ -296,4 +289,103 @@ body {
     opacity: 0.7;
     font-size: 0.9rem;
     margin: 5px 0;
+}
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 80px;
+}
+
+.social-wrapper {
+    display: flex;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-5px);
+}
+
+.call-btn {
+    display: inline-flex;
+    flex-direction: column;
+    background: #fff;
+    color: #000;
+    padding: 60px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-subtext {
+    font-size: 0.75rem;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.call-btn:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .contact-section {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+
+    .map-container {
+        height: 300px;
+        border-radius: 25px;
+    }
+
+    .call-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.social-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-size: 1.4rem;
+    transition: all 0.4s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon i {
+    color: #ffffff !important;
+}
+
+.social-icon:hover {
+    background: #ffffff;
+    color: #000000 !important;
+    transform: translateY(-5px);
+}
+
+.social-icon:hover i {
+    color: #000000 !important;
 }
